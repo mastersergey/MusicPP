@@ -1,6 +1,8 @@
+import { token } from './token';
+
 const YT = {
   GET: {
-    token: 'AIzaSyBjfEm-Jcs3GRwqCtyRmUf6Wd_BrWGIsuQ',
+    token: token,
     CHANNEL: async function (
       searchValue: string,
     ): Promise<<SearchItemType>() => SearchItemType[]> {
