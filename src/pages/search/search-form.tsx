@@ -5,7 +5,7 @@ import StyledButton from '../../components/styled/styled-button';
 import StyledInput from '../../components/styled/styled-input';
 
 type TFormProp = {
-  onFormSubmit: (inputValue: string) => void;
+  hundleSubmit: (inputValue: string) => void;
 };
 
 const StyledForm = styled.form`
@@ -20,7 +20,7 @@ const FormButton = styled(StyledButton)`
   font-size: 15px;
 `;
 
-function SearchForm({ onFormSubmit }: TFormProp) {
+function SearchForm({ hundleSubmit }: TFormProp) {
   const [inputValue, setInputValue] = useState('');
 
   function onInputChange(e: { target: { value: string } }) {
@@ -32,7 +32,7 @@ function SearchForm({ onFormSubmit }: TFormProp) {
     <StyledForm
       onSubmit={(e) => {
         e.preventDefault();
-        onFormSubmit(inputValue);
+        hundleSubmit(inputValue);
       }}
     >
       <StyledInput type="text" onChange={onInputChange} />

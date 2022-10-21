@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import YT from '../../api/youtube-api';
@@ -45,18 +45,19 @@ type TSongItem = {
 
 function SearchPage() {
   const [channel, setChannel] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
+  const [songs, setSongs] = useState([]);
+  const [formValue, setFormValue] = useState('');
 
-  async function onFormSubmit(inputValue: string) {
-    const searchedChannel = await YT.GET.CHANNEL(inputValue);
-    const searchedPlaylist = await YT.GET.SONGS(inputValue, 10);
-    setChannel(searchedChannel);
-    setPlaylist(searchedPlaylist);
-  }
+  useEffect(() => {
+    if (formValue) {
+      YT.GET.CHANNEL(formValue).then((channel) => setChannel(channel));
+      YT.GET.SONGS(formValue, 10).then((songs) => setSongs(songs));
+    }
+  }, [formValue]);
 
   return (
     <div>
-      <SearchForm onFormSubmit={onFormSubmit} />
+      <SearchForm hundleSubmit={setFormValue} />
       <SearchListWrapper>
         {channel.map(({ id, snippet }: TChannelItem) => (
           <ChannelItem
@@ -67,10 +68,10 @@ function SearchPage() {
             description={snippet.description}
           />
         ))}
-        {playlist[0] && (
+        {songs[0] && (
           <div>
             <h2>Popular Releases</h2>
-            {playlist.map(({ id, snippet }: TSongItem) => (
+            {songs.map(({ id, snippet }: TSongItem) => (
               <SongItem
                 key={id}
                 id={id}

@@ -3,9 +3,7 @@ import { token } from './token';
 const YT = {
   GET: {
     token: token,
-    CHANNEL: async function (
-      searchValue: string,
-    ): Promise<<SearchItemType>() => SearchItemType[]> {
+    CHANNEL: async function (searchValue: string) {
       const response = await fetch(
         `https://youtube.googleapis.com/youtube/v3/search?maxResults=1&type=channel&part=snippet&q=${searchValue}&topicId=%2Fm%2F04rlf&key=${this.token}`,
       );
