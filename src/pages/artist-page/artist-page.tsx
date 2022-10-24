@@ -6,7 +6,7 @@ import YT from '../../api/youtube-api';
 import ArtistAlbums from '../../components/artist-albums/artist-albums';
 import ArtistSongs from '../../components/artist-songs/artist-songs';
 import ArtistStatus from '../../components/artist-status/artist-status';
-import { ArtistTitle, BannerWrapper } from './styles';
+import { ArtistTitle, BannerWrapper, ContentWrapper } from './styles';
 
 function ArtistPage() {
   const params = useParams();
@@ -20,11 +20,13 @@ function ArtistPage() {
     pageInfo && (
       <div>
         <BannerWrapper justify="flex-end" direction="column" theme={pageInfo.banner} />
-        <ArtistTitle>{pageInfo.title}</ArtistTitle>
-        <p>{pageInfo.subscribersCount} subscribers</p>
-        <ArtistStatus />
-        <ArtistSongs artistName={pageInfo.title} />
-        <ArtistAlbums artistId={params.artistId} />
+        <ContentWrapper>
+          <ArtistTitle>{pageInfo.title}</ArtistTitle>
+          <p>{pageInfo.subscribersCount} subscribers</p>
+          <ArtistStatus />
+          <ArtistSongs artistName={pageInfo.title} />
+          <ArtistAlbums artistId={params.artistId} />
+        </ContentWrapper>
       </div>
     )
   );

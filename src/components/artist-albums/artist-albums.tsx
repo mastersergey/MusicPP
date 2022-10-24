@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import { TContentItem } from '../../api/types';
 import YT from '../../api/youtube-api';
 import { Flexbox } from '../styled/flexbox';
 import ArtistAlbumsItem from './artist-albums-item';
 import { ArtistAlbumsTitle } from './styles';
+
+const AlbumsWrapper = styled(Flexbox)`
+  padding-bottom: 100px;
+`;
 
 function ArtistAlbums({ artistId }: { artistId?: string }) {
   const [albums, setAlbums] = useState<TContentItem[]>([]);
@@ -16,7 +21,7 @@ function ArtistAlbums({ artistId }: { artistId?: string }) {
   return (
     <div>
       <ArtistAlbumsTitle>Popular releases</ArtistAlbumsTitle>
-      <Flexbox direction="column" align="start">
+      <AlbumsWrapper direction="column" align="start">
         {albums.map((album: TContentItem) => (
           <ArtistAlbumsItem
             key={album.id}
@@ -24,7 +29,7 @@ function ArtistAlbums({ artistId }: { artistId?: string }) {
             title={album.snippet.title}
           />
         ))}
-      </Flexbox>
+      </AlbumsWrapper>
     </div>
   );
 }

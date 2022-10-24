@@ -27,7 +27,7 @@ const TopWrapper = styled.div`
 const SongsWrapper = styled.div`
   display: grid;
   grid-template-columns: 65% 35%;
-  padding: 10px 50px;
+  padding: 10px;
   margin-bottom: 20px;
   @media (max-width: 1320px) {
     grid-template-columns: 90% 10%;

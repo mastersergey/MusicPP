@@ -20,4 +20,8 @@ const ArtistTitle = styled.h1`
   }
 `;
 
-export { ArtistTitle, BannerWrapper };
+const ContentWrapper = styled.div`
+  padding-left: 50px;
+`;
+
+export { ArtistTitle, BannerWrapper, ContentWrapper };
