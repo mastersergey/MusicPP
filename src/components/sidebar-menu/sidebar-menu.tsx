@@ -3,16 +3,18 @@ import styled from 'styled-components';
 
 import SidebarMenuLink from './sidebar-menu-link';
 
-const StyledSidebarMenu = styled.div`
+const StyledSidebarMenu = styled.aside`
   display: flex;
   top: 0;
-  height: 80vh;
-  position: sticky;
+  height: 100vh;
+  position: fixed;
+  width: 15%;
   flex-direction: column;
-  margin: 10px;
   padding-top: 30px;
   background-color: black;
-  border-radius: 5%;
+  @media (max-width: 1320px) {
+    width: 25%;
+  }
   @media (max-width: 555px) {
     display: none;
   }

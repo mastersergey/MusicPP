@@ -19,7 +19,7 @@ const ArtistAlbumsItemWrapper = styled(Flexbox)`
     margin: 0;
   }
   @media (max-width: 920px) {
-    width: 100%;
+    width: 80%;
   }
 `;
 

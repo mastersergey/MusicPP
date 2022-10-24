@@ -39,6 +39,9 @@ const LikedSongsWrapper = styled.div`
   h2 {
     margin-bottom: 20px;
   }
+  @media (max-width: 1320px) {
+    display: none;
+  }
 `;
 const LikedSongsInner = styled(Flexbox)`
   img {

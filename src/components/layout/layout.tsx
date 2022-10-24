@@ -20,11 +20,14 @@ const LayoutWrapper = styled.div`
 
 function Layout() {
   return (
-    <LayoutWrapper>
-      <SidebarMenu />
-      <Outlet />
-      <MobileMenu />
-    </LayoutWrapper>
+    <>
+      <LayoutWrapper>
+        <SidebarMenu />
+        <div></div>
+        <Outlet />
+        <MobileMenu />
+      </LayoutWrapper>
+    </>
   );
 }
 
