@@ -7,7 +7,8 @@ import SongItem from '../../components/song-item';
 import SearchForm from './search-form';
 
 const SearchListWrapper = styled.div`
-  padding: 50px;
+  width: 85%;
+  padding: 20px;
 `;
 
 type TChannelItem = {

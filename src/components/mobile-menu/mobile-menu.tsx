@@ -5,9 +5,6 @@ import MobileMenuLink from './mobile-menu-link';
 
 const MobileMenuWrapper = styled.div`
   display: none;
-  position: fixed;
-  z-index: 5;
-  bottom: 0;
   width: 100%;
   justify-content: center;
   background-color: #333333;

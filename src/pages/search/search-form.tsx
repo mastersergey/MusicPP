@@ -10,7 +10,7 @@ type TFormProp = {
 
 const StyledForm = styled.form`
   display: flex;
-  width: 70%;
+  width: 90%;
   padding: 20px;
 `;
 
@@ -36,7 +36,7 @@ function SearchForm({ hundleSubmit }: TFormProp) {
       }}
     >
       <StyledInput type="text" onChange={onInputChange} />
-      <FormButton>SEARCH</FormButton>
+      <FormButton padding="10px 20px">SEARCH</FormButton>
     </StyledForm>
   );
 }

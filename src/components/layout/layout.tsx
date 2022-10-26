@@ -3,7 +3,9 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 import MobileMenu from '../mobile-menu/mobile-menu';
+import MusicPlayer from '../music-player/music-player';
 import SidebarMenu from '../sidebar-menu/sidebar-menu';
+import LayoutBottom from './layout-bottom';
 
 const LayoutWrapper = styled.div`
   max-width: 100%;
@@ -25,7 +27,7 @@ function Layout() {
         <SidebarMenu />
         <div></div>
         <Outlet />
-        <MobileMenu />
+        <LayoutBottom />
       </LayoutWrapper>
     </>
   );
