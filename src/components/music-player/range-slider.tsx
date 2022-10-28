@@ -1,26 +1,24 @@
 import styled from 'styled-components';
 
 type TStyledSlider = {
-  thumbSize: string;
-  sliderColor: string;
-  thumbColor: string;
+  persentageRate: number;
 };
 
 interface IRangeSlider extends TStyledSlider {
   min: number;
   max: number;
   value: number;
+  onChange: (e: any) => void;
 }
 
-//#d3d3d3 - sliderColor
-// #04aa6d - thumbColor
 const StyledSlider = styled.input<TStyledSlider>`
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 8px;
   border-radius: 10%;
-  background: ${({ sliderColor }) => sliderColor};
+  background: ${({ persentageRate }) =>
+    `linear-gradient(90deg, grey ${persentageRate}%, white ${persentageRate}%)`};
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;
@@ -28,10 +26,10 @@ const StyledSlider = styled.input<TStyledSlider>`
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: ${({ thumbSize }) => thumbSize};
-    height: ${({ thumbSize }) => thumbSize};
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: ${({ thumbColor }) => thumbColor};
+    background: grey;
     cursor: pointer;
   }
   &:hover {
@@ -39,23 +37,15 @@ const StyledSlider = styled.input<TStyledSlider>`
   }
 `;
 
-function RangeSlider({
-  min,
-  max,
-  value,
-  thumbColor,
-  thumbSize,
-  sliderColor,
-}: IRangeSlider) {
+function RangeSlider({ min, max, value, persentageRate, onChange }: IRangeSlider) {
   return (
     <StyledSlider
+      onChange={onChange}
       type="range"
       min={min}
       max={max}
       value={value}
-      thumbColor={thumbColor}
-      thumbSize={thumbSize}
-      sliderColor={sliderColor}
+      persentageRate={persentageRate}
     />
   );
 }

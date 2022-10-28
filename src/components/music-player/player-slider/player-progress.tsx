@@ -1,19 +1,24 @@
+import { useState } from 'react';
+
 import { Flexbox } from '../../styled/flexbox';
 import RangeSlider from '../range-slider';
 
 function PlayerProgress() {
+  const [rangeValue, setRangeValue] = useState(0);
+  const min = 0;
+  const max = 300;
+
   return (
     <Flexbox>
-      <div>00</div>
+      <div>{rangeValue}</div>
       <RangeSlider
-        min={0}
-        max={300}
-        value={150}
-        thumbColor="#04aa6d"
-        thumbSize="18px"
-        sliderColor="#d3d3d3"
+        onChange={(e) => setRangeValue(e.target.value)}
+        min={min}
+        max={max}
+        value={rangeValue}
+        persentageRate={rangeValue / (max / 100) + 1}
       />
-      <div>300</div>
+      <div>{max}</div>
     </Flexbox>
   );
 }
