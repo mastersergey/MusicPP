@@ -1,4 +1,4 @@
-import { YouTubePlayer, YouTubeProps } from 'react-youtube';
+import { YouTubeProps } from 'react-youtube';
 
 export type TPlayerProp = {
   player: TPlayer;
