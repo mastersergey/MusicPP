@@ -75,9 +75,10 @@ function SearchPage() {
             {songs.map(({ id, snippet }: TSongItem) => (
               <SongItem
                 key={id}
-                id={id}
+                id={snippet.resourceId.videoId}
                 icon={snippet.thumbnails.medium.url}
                 title={snippet.title}
+                channelTitle={snippet.videoOwnerChannelTitle}
               />
             ))}
           </div>

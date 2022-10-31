@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
+import { useAppSelector } from '../../redux/hooks';
 import { Flexbox } from '../styled/flexbox';
 import PlayerLeftSide from './player-left';
 import PlayerRightSide from './player-right';
 import PlayerSlider from './player-slider/player-slider';
+import { TPlayer } from './types';
+import Video from './video/video';
 
 const PlayerWrapper = styled(Flexbox)`
   width: 100%;
@@ -13,12 +17,20 @@ const PlayerWrapper = styled(Flexbox)`
 `;
 
 function MusicPlayer() {
+  const { showPlayer } = useAppSelector((state) => state.player);
+  const [player, setPlayer] = useState<TPlayer>(null);
+
   return (
-    <PlayerWrapper>
-      <PlayerLeftSide />
-      <PlayerSlider />
-      <PlayerRightSide />
-    </PlayerWrapper>
+    showPlayer && (
+      <>
+        <Video setPlayer={setPlayer} />
+        <PlayerWrapper>
+          <PlayerLeftSide />
+          <PlayerSlider player={player} />
+          <PlayerRightSide player={player} />
+        </PlayerWrapper>
+      </>
+    )
   );
 }
 

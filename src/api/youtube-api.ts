@@ -22,7 +22,6 @@ const YT = {
     SONGS: async function (searchValue: string | undefined, maxResults: number) {
       const playlist = await this.PLAYLIST(searchValue, maxResults);
       const playlistId = playlist.items[0].id.playlistId;
-      console.log(searchValue);
       const songsResponse = await fetch(
         `https://youtube.googleapis.com/youtube/v3/playlistItems?maxResults=${maxResults}&part=snippet&playlistId=${playlistId}&key=${this.token}`,
       );

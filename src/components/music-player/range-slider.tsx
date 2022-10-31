@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 type TStyledSlider = {
@@ -8,7 +9,7 @@ interface IRangeSlider extends TStyledSlider {
   min: number;
   max: number;
   value: number;
-  onChange: (e: any) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const StyledSlider = styled.input<TStyledSlider>`

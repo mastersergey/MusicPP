@@ -12,7 +12,7 @@ function PlayerProgress() {
     <Flexbox>
       <div>{rangeValue}</div>
       <RangeSlider
-        onChange={(e) => setRangeValue(e.target.value)}
+        onChange={(e) => setRangeValue(+e.target.value)}
         min={min}
         max={max}
         value={rangeValue}
