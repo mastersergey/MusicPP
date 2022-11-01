@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { useAppDispatch } from '../redux/hooks';
-import { playSong, setSongInfo } from '../redux/player-slice';
-import { Flexbox } from './styled/flexbox';
-import StyledIcon from './styled/styled-icon';
+import { useAppDispatch } from '../../../redux/hooks';
+import { playSong, setSongInfo } from '../../../redux/player-slice';
+import { Flexbox } from '../../styled/flexbox';
+import StyledIcon from '../../styled/styled-icon';
 
 type SongItemProp = {
   icon: string;
@@ -24,7 +24,7 @@ const SongTitle = styled.p`
   font-weight: 500;
 `;
 
-function SongItem({ icon, title, id, channelTitle }: SongItemProp) {
+function SearchSongItem({ icon, title, id, channelTitle }: SongItemProp) {
   const dispatch = useAppDispatch();
   console.log(id);
   return (
@@ -49,4 +49,4 @@ function SongItem({ icon, title, id, channelTitle }: SongItemProp) {
   );
 }
 
-export default SongItem;
+export default SearchSongItem;

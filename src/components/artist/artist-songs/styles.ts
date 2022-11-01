@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Flexbox } from '../styled/flexbox';
+import { Flexbox } from '../../styled/flexbox';
 
 const ArtistSongsItemWrapper = styled(Flexbox)`
   font-weight: 500;

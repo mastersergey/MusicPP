@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import { TPageInfoResponse } from '../../api/types';
 import YT from '../../api/youtube-api';
-import ArtistAlbums from '../../components/artist-albums/artist-albums';
-import ArtistSongs from '../../components/artist-songs/artist-songs';
-import ArtistStatus from '../../components/artist-status/artist-status';
+import ArtistAlbums from '../../components/artist/artist-albums/artist-albums';
+import ArtistSongs from '../../components/artist/artist-songs/artist-songs';
+import ArtistStatus from '../../components/artist/artist-status/artist-status';
 import { ArtistTitle, BannerWrapper, ContentWrapper } from './styles';
 
 function ArtistPage() {

@@ -1,4 +1,4 @@
-import { Flexbox } from '../styled/flexbox';
+import { Flexbox } from '../../styled/flexbox';
 import { ArtistSongsItemIcon, ArtistSongsItemWrapper } from './styles';
 
 type TArtistSongsItemProp = {

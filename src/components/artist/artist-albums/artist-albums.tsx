@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { TContentItem } from '../../api/types';
-import YT from '../../api/youtube-api';
-import { Flexbox } from '../styled/flexbox';
+import { TContentItem } from '../../../api/types';
+import YT from '../../../api/youtube-api';
+import { Flexbox } from '../../styled/flexbox';
 import ArtistAlbumsItem from './artist-albums-item';
 import { ArtistAlbumsTitle } from './styles';
 

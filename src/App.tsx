@@ -5,7 +5,7 @@ import Layout from './components/layout/layout';
 import ArtistPage from './pages/artist-page/artist-page';
 import HomePage from './pages/home';
 import LibraryPage from './pages/library';
-import SearchPage from './pages/search/search';
+import SearchPage from './pages/search-page/search';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { TContentItem } from '../../api/types';
-import YT from '../../api/youtube-api';
+import { TContentItem } from '../../../api/types';
+import YT from '../../../api/youtube-api';
 import ArtistSongsItem from './artist-songs-item';
 import ArtistSongsLiked from './artist-songs-liked';
 import { SongsWrapper, TopWrapper } from './styles';

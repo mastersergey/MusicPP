@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Flexbox } from '../styled/flexbox';
-import StyledButton from '../styled/styled-button';
+import { Flexbox } from '../../styled/flexbox';
+import StyledButton from '../../styled/styled-button';
 
 const StatusWrapper = styled(Flexbox)`
   padding: 20px 50px;
