@@ -12,6 +12,13 @@ export type TPlayer = null | {
   previousVideo: () => void;
   nextVideo: () => void;
   getPlayerState: () => number;
+  playVideoAt: (index: number) => void;
+  loadPlaylist: (
+    playlist: string | string[],
+    index?: number,
+    startSeconds?: number,
+    suggestedQuality?: string,
+  ) => void;
   cuePlaylist: (
     playlist: string | string[],
     index?: number,

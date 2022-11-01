@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import StyledButton from '../../components/styled/styled-button';
-import StyledInput from '../../components/styled/styled-input';
+import StyledButton from '../styled/styled-button';
+import StyledInput from '../styled/styled-input';
 
-type TFormProp = {
+type TSearchFormProp = {
   hundleSubmit: (inputValue: string) => void;
 };
 
@@ -20,7 +20,7 @@ const FormButton = styled(StyledButton)`
   font-size: 15px;
 `;
 
-function SearchForm({ hundleSubmit }: TFormProp) {
+function SearchForm({ hundleSubmit }: TSearchFormProp) {
   const [inputValue, setInputValue] = useState('');
 
   function onInputChange(e: { target: { value: string } }) {

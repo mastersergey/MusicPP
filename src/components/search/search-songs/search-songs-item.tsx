@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 
 import { useAppDispatch } from '../../../redux/hooks';
-import { playSong, setSongInfo } from '../../../redux/player-slice';
+import {
+  playSong,
+  setPlaylist,
+  setSongIndex,
+  setSongInfo,
+} from '../../../redux/player-slice';
 import { Flexbox } from '../../styled/flexbox';
 import StyledIcon from '../../styled/styled-icon';
+import { TPlaylistItem } from '../types';
 
-type SongItemProp = {
+export type SongItemProp = {
   icon: string;
   title: string;
-  id?: string;
+  id: string;
   channelTitle: string;
+  playlist: TPlaylistItem[];
 };
 
 const SongWrapper = styled(Flexbox)`
@@ -24,13 +31,15 @@ const SongTitle = styled.p`
   font-weight: 500;
 `;
 
-function SearchSongItem({ icon, title, id, channelTitle }: SongItemProp) {
+function SearchSongItem({ icon, title, id, channelTitle, playlist }: SongItemProp) {
   const dispatch = useAppDispatch();
-  console.log(id);
+  const songIndexInPlaylist = playlist.findIndex((item) => item.id === id);
+
   return (
     <SongWrapper
       onClick={() => {
         dispatch(playSong(id));
+        dispatch(setSongIndex(songIndexInPlaylist));
         dispatch(
           setSongInfo({
             songTitle: title,
@@ -38,6 +47,7 @@ function SearchSongItem({ icon, title, id, channelTitle }: SongItemProp) {
             songIcon: icon,
           }),
         );
+        dispatch(setPlaylist(playlist));
       }}
     >
       <StyledIcon src={icon} alt="icon" />

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import SearchChannelList from '../../components/search/search-channel/search-channel-list';
+import SearchForm from '../../components/search/search-form';
 import SearchSongsList from '../../components/search/search-songs/search-songs-list';
-import SearchForm from './search-form';
 
 const SearchListWrapper = styled.div`
   width: 85%;

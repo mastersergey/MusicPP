@@ -34,3 +34,10 @@ export type TSongItem = {
     title: string;
   };
 };
+
+export type TPlaylistItem = {
+  id: string;
+  songTitle: string;
+  artistTitle: string;
+  songIcon: string;
+};

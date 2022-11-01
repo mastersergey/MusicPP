@@ -1,17 +1,18 @@
 import { Dispatch, SetStateAction } from 'react';
-import YouTube, { YouTubeEvent, YouTubeProps } from 'react-youtube';
+import YouTube, { YouTubeProps } from 'react-youtube';
 import styled from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { setPlayerState } from '../../../redux/player-slice';
+import { Flexbox } from '../../styled/flexbox';
 import { TPlayer } from '../types';
 
 type VidoWrapperProp = {
   isShow: boolean;
 };
 
-const VideoWrapper = styled.div<VidoWrapperProp>`
-  display: ${({ isShow }) => (isShow ? 'block' : 'none')};
+const VideoWrapper = styled(Flexbox)<VidoWrapperProp>`
+  display: ${({ isShow }) => (isShow ? 'flex' : 'none')};
 `;
 
 type TVideoProp = {
@@ -23,8 +24,8 @@ function Video({ setPlayer }: TVideoProp) {
   const dispatch = useAppDispatch();
 
   const opts: YouTubeProps['opts'] = {
-    height: '0',
-    width: '0',
+    height: '360',
+    width: '580',
     playerVars: {
       autoplay: 1,
     },
@@ -34,12 +35,17 @@ function Video({ setPlayer }: TVideoProp) {
     dispatch(setPlayerState(event.target.getPlayerState()));
   };
 
+  const onReady: YouTubeProps['onReady'] = (event) => {
+    const player = event.target;
+    setPlayer(player);
+  };
+
   return (
-    <VideoWrapper isShow={false}>
+    <VideoWrapper isShow={true} justify="flex-end">
       <YouTube
         opts={opts}
         videoId={videoId}
-        onReady={(e: YouTubeEvent) => setPlayer(e.target)}
+        onReady={onReady}
         onStateChange={onStateChange}
       />
     </VideoWrapper>
