@@ -1,24 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Flexbox } from '../styled/flexbox';
 import IconButton from '../styled/icon-button';
 import RangeSlider from './range-slider';
-import { IPlayerRightProp, TPlayerProp } from './types';
+import { IPlayerRightProp } from './types';
 
 function PlayerRightSide({ player, toggleClip, isClipOpen }: IPlayerRightProp) {
-  const [volume, setVolume] = useState(0);
+  const [volume, setVolume] = useState(30);
+
+  useEffect(() => {
+    player?.setVolume(volume);
+  }, [volume]);
+
+  function handleChangeVolume(e: any) {
+    const value = Number(e.target.value);
+    setVolume(value);
+  }
+
+  function handleMute() {
+    if (player?.isMuted()) {
+      player.unMute();
+      setVolume(30);
+    } else {
+      player?.mute();
+      setVolume(0);
+    }
+  }
+
   return (
     <Flexbox flex="1" justify="center" align="center">
       <IconButton
-        src="./assets/show-video.svg"
+        src="./assets/player/show-video.svg"
         alt="show video"
         onClick={() => toggleClip(!isClipOpen)}
       />
-      <IconButton src="./assets/open-playlist.svg" alt="playlist" />
-      <IconButton src="./assets/volume.svg" alt="vol" />
+      <IconButton
+        src="./assets/player/open-playlist.svg"
+        alt="playlist"
+        onClick={() => console.log('click')}
+      />
+      <IconButton src={`./assets/player/volume.svg`} alt="vol" onClick={handleMute} />
       <div>
         <RangeSlider
-          onChange={(e) => setVolume(+e.target.value)}
+          onChange={handleChangeVolume}
           min={0}
           max={100}
           value={volume}

@@ -3,7 +3,7 @@ import StyledButton from './styled-button';
 type TIconButtonProp = {
   src: string;
   alt: string;
-  onClick?: () => void;
+  onClick: () => void;
 };
 
 function IconButton({ src, alt, onClick }: TIconButtonProp) {

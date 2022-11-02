@@ -2,13 +2,13 @@ import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 type TStyledSlider = {
-  persentageRate: number;
+  persentageRate?: number;
 };
 
 interface IRangeSlider extends TStyledSlider {
   min: number;
   max: number;
-  value: number;
+  value?: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -17,7 +17,6 @@ const StyledSlider = styled.input<TStyledSlider>`
   appearance: none;
   width: 100%;
   height: 8px;
-  border-radius: 10%;
   background: ${({ persentageRate }) =>
     `linear-gradient(90deg, grey ${persentageRate}%, white ${persentageRate}%)`};
   outline: none;
@@ -29,7 +28,6 @@ const StyledSlider = styled.input<TStyledSlider>`
     appearance: none;
     width: 8px;
     height: 8px;
-    border-radius: 50%;
     background: grey;
     cursor: pointer;
   }

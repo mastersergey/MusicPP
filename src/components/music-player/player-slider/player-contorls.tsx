@@ -47,14 +47,22 @@ function PlayerControls({ player }: TPlayerProp) {
   }
   return (
     <Flexbox justify="center">
-      <IconButton src="./assets/shuffle.svg" alt="shuffle" />
-      <IconButton src="./assets/back.svg" alt="back" onClick={hundleBack} />
       <IconButton
-        src={`./assets/${isPlay ? 'pause' : 'player-play'}.svg`}
+        src="./assets/player/shuffle.svg"
+        alt="shuffle"
+        onClick={() => console.log('shuffle')}
+      />
+      <IconButton src="./assets/player/back.svg" alt="back" onClick={hundleBack} />
+      <IconButton
+        src={`./assets/player/${isPlay ? 'pause' : 'player-play'}.svg`}
         alt="play"
         onClick={hundlePlay}
       />
-      <IconButton src="./assets/forward.svg" alt="forward" onClick={hundleForward} />
+      <IconButton
+        src="./assets/player/forward.svg"
+        alt="forward"
+        onClick={hundleForward}
+      />
     </Flexbox>
   );
 }

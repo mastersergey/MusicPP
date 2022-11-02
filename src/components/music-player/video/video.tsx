@@ -8,15 +8,15 @@ import { Flexbox } from '../../styled/flexbox';
 import { TPlayer } from '../types';
 
 type VidoWrapperProp = {
-  isShow: boolean;
+  isOpen: boolean;
 };
 
 const VideoWrapper = styled(Flexbox)<VidoWrapperProp>`
-  display: ${({ isShow }) => (isShow ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 `;
 
 type TVideoProp = {
-  setPlayer: Dispatch<SetStateAction<TPlayer>>;
+  setPlayer: Dispatch<SetStateAction<TPlayer | null>>;
   isClipOpen: boolean;
 };
 
@@ -42,7 +42,7 @@ function Video({ setPlayer, isClipOpen }: TVideoProp) {
   };
 
   return (
-    <VideoWrapper isShow={isClipOpen} justify="flex-end">
+    <VideoWrapper isOpen={isClipOpen} justify="flex-end">
       <YouTube
         opts={opts}
         videoId={videoId}

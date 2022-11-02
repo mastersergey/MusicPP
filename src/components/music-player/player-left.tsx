@@ -20,7 +20,11 @@ function PlayerLeftSide() {
           {artistTitle}
         </StyledText>
       </Flexbox>
-      <IconButton src="./assets/like-logo.svg" alt="like" />
+      <IconButton
+        src="./assets/player/like-icon.svg"
+        alt="like"
+        onClick={() => console.log('like')}
+      />
     </Flexbox>
   );
 }
