@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 import { useAppSelector } from '../../redux/hooks';
 import { Flexbox } from '../styled/flexbox';
 import IconButton from '../styled/icon-button';

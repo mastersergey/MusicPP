@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { Flexbox } from '../styled/flexbox';
 import IconButton from '../styled/icon-button';
@@ -12,7 +12,7 @@ function PlayerRightSide({ player, toggleClip, isClipOpen }: IPlayerRightProp) {
     player?.setVolume(volume);
   }, [volume]);
 
-  function handleChangeVolume(e: any) {
+  function handleChangeVolume(e: ChangeEvent<HTMLInputElement>) {
     const value = Number(e.target.value);
     setVolume(value);
   }
