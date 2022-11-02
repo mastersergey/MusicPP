@@ -8,9 +8,9 @@ function PlayerControls({ player }: TPlayerProp) {
   const songId = useAppSelector((state) => state.player.songIndex);
   const playlist = useAppSelector((state) => state.player.playlist);
   const playerState = useAppSelector((state) => state.player.playerState);
+  const isPlay = playerState === 1;
   const dispatch = useAppDispatch();
   function hundlePlay() {
-    const isPlay = playerState === 1;
     if (player !== null) {
       isPlay ? player.pauseVideo() : player.playVideo();
     }
@@ -49,7 +49,11 @@ function PlayerControls({ player }: TPlayerProp) {
     <Flexbox justify="center">
       <IconButton src="./assets/shuffle.svg" alt="shuffle" />
       <IconButton src="./assets/back.svg" alt="back" onClick={hundleBack} />
-      <IconButton src="./assets/player-play.svg" alt="play" onClick={hundlePlay} />
+      <IconButton
+        src={`./assets/${isPlay ? 'pause' : 'player-play'}.svg`}
+        alt="play"
+        onClick={hundlePlay}
+      />
       <IconButton src="./assets/forward.svg" alt="forward" onClick={hundleForward} />
     </Flexbox>
   );
