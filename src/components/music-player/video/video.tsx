@@ -17,9 +17,10 @@ const VideoWrapper = styled(Flexbox)<VidoWrapperProp>`
 
 type TVideoProp = {
   setPlayer: Dispatch<SetStateAction<TPlayer>>;
+  isClipOpen: boolean;
 };
 
-function Video({ setPlayer }: TVideoProp) {
+function Video({ setPlayer, isClipOpen }: TVideoProp) {
   const videoId = useAppSelector((state) => state.player.song);
   const dispatch = useAppDispatch();
 
@@ -41,7 +42,7 @@ function Video({ setPlayer }: TVideoProp) {
   };
 
   return (
-    <VideoWrapper isShow={true} justify="flex-end">
+    <VideoWrapper isShow={isClipOpen} justify="flex-end">
       <YouTube
         opts={opts}
         videoId={videoId}

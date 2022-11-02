@@ -19,15 +19,20 @@ const PlayerWrapper = styled(Flexbox)`
 function MusicPlayer() {
   const { showPlayer } = useAppSelector((state) => state.player);
   const [player, setPlayer] = useState<TPlayer>(null);
+  const [isClipOpen, setIsClipOpen] = useState(false);
 
   return (
     showPlayer && (
       <>
-        <Video setPlayer={setPlayer} />
+        <Video isClipOpen={isClipOpen} setPlayer={setPlayer} />
         <PlayerWrapper>
           <PlayerLeftSide />
           <PlayerSlider player={player} />
-          <PlayerRightSide player={player} />
+          <PlayerRightSide
+            player={player}
+            isClipOpen={isClipOpen}
+            toggleClip={setIsClipOpen}
+          />
         </PlayerWrapper>
       </>
     )
