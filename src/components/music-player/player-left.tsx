@@ -1,10 +1,12 @@
+import { memo } from 'react';
+
 import { useAppSelector } from '../../redux/hooks';
 import { Flexbox } from '../styled/flexbox';
 import IconButton from '../styled/icon-button';
 import SlideText from '../styled/slide-text';
 import StyledText from '../styled/styled-text';
 
-function PlayerLeftSide() {
+const PlayerLeftSide = memo(function PlayerLeftSide() {
   const { songTitle, artistTitle, songIcon } = useAppSelector(
     (state) => state.player.songInfo,
   );
@@ -25,6 +27,6 @@ function PlayerLeftSide() {
       />
     </Flexbox>
   );
-}
+});
 
 export default PlayerLeftSide;

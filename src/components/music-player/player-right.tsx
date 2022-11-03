@@ -1,11 +1,15 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, memo, useEffect, useState } from 'react';
 
 import { Flexbox } from '../styled/flexbox';
 import IconButton from '../styled/icon-button';
 import RangeSlider from './range-slider';
 import { IPlayerRightProp } from './types';
 
-function PlayerRightSide({ player, toggleClip, isClipOpen }: IPlayerRightProp) {
+const PlayerRightSide = memo(function PlayerRightSide({
+  player,
+  toggleClip,
+  isClipOpen,
+}: IPlayerRightProp) {
   const [volume, setVolume] = useState(30);
 
   useEffect(() => {
@@ -51,6 +55,5 @@ function PlayerRightSide({ player, toggleClip, isClipOpen }: IPlayerRightProp) {
       </div>
     </Flexbox>
   );
-}
-
+});
 export default PlayerRightSide;

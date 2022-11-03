@@ -14,6 +14,7 @@ export type TPlayer = null | {
   isMuted: () => boolean;
   setVolume: (volume: number) => void;
   getVolume: () => number;
+  getDuration: () => number;
 };
 
 export type TPlayerProp = {
