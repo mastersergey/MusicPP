@@ -17,7 +17,8 @@ const StyledNavLink = styled(NavLink)`
     background-color: gray;
   }
   &::before {
-    content: ${(props) => `url(/assets/${props.to === '/' ? 'home' : props.to}.svg)`};
+    content: ${(props) =>
+      `url(/assets/menu/${props.to === '/' ? 'home' : props.to}.svg)`};
     margin-right: 15px;
   }
 `;
