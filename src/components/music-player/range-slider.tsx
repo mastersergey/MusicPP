@@ -6,8 +6,8 @@ type TStyledSlider = {
 };
 
 interface IRangeSlider extends TStyledSlider {
-  min: number;
-  max: number;
+  min?: number;
+  max?: number;
   value?: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
