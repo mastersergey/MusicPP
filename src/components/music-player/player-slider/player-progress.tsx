@@ -17,6 +17,7 @@ function formatDuration(duration: number | undefined) {
 
 function PlayerProgress({ player }: TPlayerProp) {
   const [rangeValue, setRangeValue] = useState(0);
+  const [isSeek, setIsSeek] = useState(false);
   const playerState = useAppSelector(({ player }) => player.playerState);
   const videoDuration = player?.getDuration();
 
@@ -32,11 +33,23 @@ function PlayerProgress({ player }: TPlayerProp) {
     }
   }, [playerState]);
 
+  useEffect(() => {
+    if (isSeek) {
+      player?.pauseVideo();
+      player?.seekTo(rangeValue);
+      setIsSeek(false);
+    }
+  }, [isSeek]);
+
   return (
     <Flexbox>
-      <div>{formatDuration(rangeValue)}</div>
+      <div>{formatDuration(rangeValue) || '00:00'}</div>
       <RangeSlider
-        onChange={(e) => setRangeValue(+e.target.value)}
+        onMouseUp={() => player?.playVideo()}
+        onChange={(e) => {
+          setIsSeek(true);
+          setRangeValue(Number(e.target.value));
+        }}
         min={0}
         max={videoDuration}
         value={rangeValue}

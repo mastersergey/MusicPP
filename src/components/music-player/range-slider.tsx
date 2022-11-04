@@ -10,6 +10,7 @@ interface IRangeSlider extends TStyledSlider {
   max?: number;
   value?: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onMouseUp: () => void;
 }
 
 const StyledSlider = styled.input<TStyledSlider>`
@@ -36,9 +37,17 @@ const StyledSlider = styled.input<TStyledSlider>`
   }
 `;
 
-function RangeSlider({ min, max, value, persentageRate, onChange }: IRangeSlider) {
+function RangeSlider({
+  min,
+  max,
+  value,
+  persentageRate,
+  onChange,
+  onMouseUp,
+}: IRangeSlider) {
   return (
     <StyledSlider
+      onMouseUp={onMouseUp}
       onChange={onChange}
       type="range"
       min={min}

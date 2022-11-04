@@ -16,6 +16,7 @@ export type TPlayer = null | {
   getVolume: () => number;
   getDuration: () => number;
   getCurrentTime: () => number;
+  seekTo: (seconds: number) => void;
 };
 
 export type TPlayerProp = {
