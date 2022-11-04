@@ -1,12 +1,16 @@
 type TContentItem = {
   id: string;
   snippet: {
-    title: string;
+    resourceId: {
+      videoId: string;
+    };
     thumbnails: {
-      high: {
+      medium: {
         url: string;
       };
     };
+    videoOwnerChannelTitle: string;
+    title: string;
   };
 };
 

@@ -21,7 +21,7 @@ const PlayerLeftSide = memo(function PlayerLeftSide() {
         </StyledText>
       </Flexbox>
       <IconButton
-        src="./assets/player/like-icon.svg"
+        src="../assets/player/like-icon.svg"
         alt="like"
         onClick={() => console.log('like')}
       />

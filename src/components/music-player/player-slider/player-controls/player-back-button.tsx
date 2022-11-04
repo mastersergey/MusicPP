@@ -22,7 +22,7 @@ function PlayerBackButton() {
     dispatch(playSong(backSong));
     dispatch(setSongIndex(backSongIndex));
   }
-  return <IconButton src="./assets/player/back.svg" alt="back" onClick={hundleBack} />;
+  return <IconButton src="../assets/player/back.svg" alt="back" onClick={hundleBack} />;
 }
 
 export default PlayerBackButton;

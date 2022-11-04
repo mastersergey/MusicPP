@@ -1,22 +1,15 @@
 import styled from 'styled-components';
 
-import { useAppDispatch } from '../../../redux/hooks';
-import {
-  playSong,
-  setPlaylist,
-  setSongIndex,
-  setSongInfo,
-} from '../../../redux/player-slice';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { playSong, setSongIndex, setSongInfo } from '../../../redux/player-slice';
 import { Flexbox } from '../../styled/flexbox';
 import StyledIcon from '../../styled/styled-icon';
-import { TPlaylistItem } from '../types';
 
 export type SongItemProp = {
   icon: string;
   title: string;
   id: string;
   channelTitle: string;
-  playlist: TPlaylistItem[];
 };
 
 const SongWrapper = styled(Flexbox)`
@@ -31,8 +24,9 @@ const SongTitle = styled.p`
   font-weight: 500;
 `;
 
-function SearchSongItem({ icon, title, id, channelTitle, playlist }: SongItemProp) {
+function SearchSongItem({ icon, title, id, channelTitle }: SongItemProp) {
   const dispatch = useAppDispatch();
+  const playlist = useAppSelector(({ player }) => player.playlist);
   const songIndexInPlaylist = playlist.findIndex((item) => item.id === id);
 
   return (
@@ -47,7 +41,6 @@ function SearchSongItem({ icon, title, id, channelTitle, playlist }: SongItemPro
             songIcon: icon,
           }),
         );
-        dispatch(setPlaylist(playlist));
       }}
     >
       <StyledIcon src={icon} alt="icon" />

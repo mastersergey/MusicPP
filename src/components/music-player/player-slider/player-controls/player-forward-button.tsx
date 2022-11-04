@@ -21,7 +21,11 @@ function PlayerForwardButton() {
     dispatch(setSongIndex(forwardSongIndex));
   }
   return (
-    <IconButton src="./assets/player/forward.svg" alt="forward" onClick={hundleForward} />
+    <IconButton
+      src="../assets/player/forward.svg"
+      alt="forward"
+      onClick={hundleForward}
+    />
   );
 }
 

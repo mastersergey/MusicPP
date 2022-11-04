@@ -1,11 +1,16 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useEffect, useMemo, useState } from 'react';
 
 import YT from '../../../api/youtube-api';
+import { useAppDispatch } from '../../../redux/hooks';
+import { setPlaylist } from '../../../redux/player-slice';
 import { TFormValueProp, TPlaylistItem, TSongItem } from '../types';
 import SearchSongItem from './search-songs-item';
 
 function SearchSongsList({ formValue }: TFormValueProp) {
   const [songs, setSongs] = useState([]);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (formValue) {
@@ -13,7 +18,7 @@ function SearchSongsList({ formValue }: TFormValueProp) {
     }
   }, [formValue]);
 
-  const songsIdList = useMemo(() => {
+  const songsList = useMemo(() => {
     const list: TPlaylistItem[] = [];
     songs.forEach(({ snippet }: TSongItem) => {
       const listItem = {
@@ -27,25 +32,22 @@ function SearchSongsList({ formValue }: TFormValueProp) {
     return list;
   }, [songs]);
 
-  return (
+  return songs[0] ? (
     <>
-      {songs[0] && (
-        <div>
-          <h2>Popular Releases</h2>
-          {songs.map(({ id, snippet }: TSongItem) => (
-            <SearchSongItem
-              playlist={songsIdList}
-              key={id}
-              id={snippet.resourceId.videoId}
-              icon={snippet.thumbnails.medium.url}
-              title={snippet.title}
-              channelTitle={snippet.videoOwnerChannelTitle}
-            />
-          ))}
-        </div>
-      )}
+      <h2>Popular Releases</h2>
+      <div onClick={() => dispatch(setPlaylist(songsList))}>
+        {songs.map(({ id, snippet }: TSongItem) => (
+          <SearchSongItem
+            key={id}
+            id={snippet.resourceId.videoId}
+            icon={snippet.thumbnails.medium.url}
+            title={snippet.title}
+            channelTitle={snippet.videoOwnerChannelTitle}
+          />
+        ))}
+      </div>
     </>
-  );
+  ) : null;
 }
 
 export default SearchSongsList;

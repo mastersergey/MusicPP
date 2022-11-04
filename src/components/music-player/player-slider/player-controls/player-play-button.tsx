@@ -12,7 +12,7 @@ function PlayerPlayButton({ player }: TPlayerProp) {
   }
   return (
     <IconButton
-      src={`./assets/player/${isPlay ? 'pause' : 'player-play'}.svg`}
+      src={`../assets/player/${isPlay ? 'pause' : 'player-play'}.svg`}
       alt="play"
       onClick={hundlePlay}
     />

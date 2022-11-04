@@ -34,16 +34,16 @@ const PlayerRightSide = memo(function PlayerRightSide({
   return (
     <Flexbox flex="1" justify="center" align="center">
       <IconButton
-        src="./assets/player/show-video.svg"
+        src="../assets/player/show-video.svg"
         alt="show video"
         onClick={() => toggleClip(!isClipOpen)}
       />
       <IconButton
-        src="./assets/player/open-playlist.svg"
+        src="../assets/player/open-playlist.svg"
         alt="playlist"
         onClick={() => console.log('click')}
       />
-      <IconButton src={`./assets/player/volume.svg`} alt="vol" onClick={handleMute} />
+      <IconButton src={`../assets/player/volume.svg`} alt="vol" onClick={handleMute} />
       <div>
         <RangeSlider
           onChange={handleChangeVolume}

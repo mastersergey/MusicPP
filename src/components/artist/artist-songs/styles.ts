@@ -6,6 +6,7 @@ const ArtistSongsItemWrapper = styled(Flexbox)`
   font-weight: 500;
   margin-bottom: 10px;
   width: 100%;
+  cursor: pointer;
   transition: 0.1s linear;
   &:hover {
     color: green;
@@ -14,8 +15,8 @@ const ArtistSongsItemWrapper = styled(Flexbox)`
 
 const ArtistSongsItemIcon = styled.img`
   margin: 0 10px;
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 60px;
 `;
 
 const TopWrapper = styled.div`
